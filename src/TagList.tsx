@@ -1,5 +1,6 @@
 import { Transition } from "@headlessui/react";
 import React from "react";
+import { Fragment } from "react";
 import { useState } from "react";
 
 interface prop {
@@ -27,19 +28,36 @@ const TagList: React.FC<prop> = ({children,title}) => {
                 </div>
               </>
             ))}
+
             <div
               className={"h-1 bg-primary-400 absolute bottom-0"}
               style={{
                 width: tabIndex + "%",
                 left: tabIndex * curIndex - 3 + "%",
               }}
-            ></div>
-</div>
+            ></div> 
+          </div>
         </div>
+
+            {children.map((child ,index) =>
+            {
+              return <Transition  
+              show={index === curIndex}
+              enter="trasition-opacity duration-300"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="trasition-opacity duration-300"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0" 
+              >
+
         {children.map((child, index) => (
           <>{curIndex === index ? child.props.children : null}</>
         ))}
+
+       </Transition>})}
       </div>
+
       {/* {children.map((child, index) => {
         <Transition
           show={curIndex === index}
