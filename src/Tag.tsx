@@ -1,13 +1,11 @@
 import React from "react";
-import Format from "./FormatTag";
-
-export interface props {
+export interface prop {
   tagTitle: number;
-  children: React.ReactNode;
+  children: JSX.Element[] | JSX.Element;
 }
 
-const Tag: React.FC<props> = (props) => {
-        return <>{props}</>
+const Tag: React.FC<prop> = (prop) => {
+        return <>{prop}</>
  }
 
 export default React.memo(Tag);

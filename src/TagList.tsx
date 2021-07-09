@@ -1,12 +1,13 @@
+import { Transition } from "@headlessui/react";
 import React from "react";
 import { useState } from "react";
-import FormatTag from "./FormatTag";
-interface props {
+
+interface prop {
   title:string
     children:React.ReactElement[]
 }
 
-const TagList: React.FC<props> = ({children,title}) => {
+const TagList: React.FC<prop> = ({children,title}) => {
   let [curIndex, setCurIndex] = useState<number>(0);
   const tabIndex = 100 / children.length;
   return (
@@ -33,35 +34,25 @@ const TagList: React.FC<props> = ({children,title}) => {
                 left: tabIndex * curIndex - 3 + "%",
               }}
             ></div>
-          </div>
-          {/* <div>
-          {{children.forEach(child: any=> {
-              <>
-              {child}
-              </>
-          });}
-              </div> */}
+</div>
         </div>
-        {/* <FormatTag
-          title={children.props.fTitle}
-          desc={children.desc}
-          img="https://www.starbucks.com/weblx/images/rewards/reward-tiers/025.png"
-        ></FormatTag>  */}
-
-        {/* {list.map((index) =>{
+        {children.map((child, index) => (
+          <>{curIndex === index ? child.props.children : null}</>
+        ))}
+      </div>
+      {/* {children.map((child, index) => {
         <Transition
-        show={curIndex === index}
-        enter="transition-opacity duration-75"
-        enterFrom="opacity-0"
-        enterTo="opacity-100"
-        leave="transition-opacity duration-150"
-        leaveFrom="opacity-100"
-        leaveTo="opacity-0"
+          show={curIndex === index}
+          enter="transition-opacity duration-500"
+          enterFrom="opacity-0"
+          enterTo="opacity-100"
+          leave="transition-opacity duration-500"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0"
         >
           <div className="w-full h-24">{index}</div>
-        </Transition>
-      })} */}
-      </div>
+        </Transition>; */}
+      {/* })} */}
     </>
   );
 };

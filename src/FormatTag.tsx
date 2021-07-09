@@ -9,7 +9,7 @@ export interface props{
 const FormatTag: React.FC<props> = (props)=> {
     return (
       <>
-        <div className="bg-primary-200  py-12  px-12 text-center mx-auto ">
+        <div className="absolute right-0 left-0 bg-primary-200  py-12  px-12 text-center mx-auto ">
           <div className="flex flex-col sm:flex-row justify-center items-center px-24">
             <div className="flex-1 max-w-sm">
               <img src={props.img} alt="Not Found" />
